@@ -1,12 +1,27 @@
 spring:
+  profiles:
+    active: dev
   data:
     mongodb:
-      uri: ${MONGO_URI:mongodb://localhost:27017/mongodb}
+      uri: ${MONGO_URL}
   rabbitmq:
     host: ${RABBITMQ_HOST:rabbitmq}
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USER:guest}
     password: ${RABBITMQ_PASS:guest}
 
-sendgrid:
-  api-key: ${SENDGRID_API_KEY:}
+dd:
+  trace:
+    enabled: true
+  service:
+    name: app-producer
+  env: dev
+  version: 1.0.0
+
+management:
+  metrics:
+    export:
+      datadog:
+        api-key:
+        step: 30s
+        uri: https://api.datadoghq.com

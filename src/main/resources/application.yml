@@ -3,9 +3,9 @@ spring:
     active: dev
   data:
     mongodb:
-      uri: ${MONGO_URL}
+      uri: ${MONGO_URI:mongodb://localhost:27017/mongodb}
   rabbitmq:
-    host: ${RABBITMQ_HOST:rabbitmq}
+    host: ${RABBITMQ_HOST:localhost}
     port: ${RABBITMQ_PORT:5672}
     username: ${RABBITMQ_USER:guest}
     password: ${RABBITMQ_PASS:guest}

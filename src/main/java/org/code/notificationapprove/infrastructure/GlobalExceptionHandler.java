@@ -30,4 +30,15 @@ public class GlobalExceptionHandler {
     );
   }
 
+  @ExceptionHandler(NotificationNotFoundException.class)
+  @ResponseStatus(HttpStatus.NOT_FOUND)
+  public ErrorResponse handleErrorQueue(NotificationNotFoundException ex, HttpServletRequest request) {
+    return new ErrorResponse(
+        ex.getMessage(),
+        "Cannot find notification!",
+        HttpStatus.INTERNAL_SERVER_ERROR.value(),
+        request.getRequestURI()
+    );
+  }
+
 }

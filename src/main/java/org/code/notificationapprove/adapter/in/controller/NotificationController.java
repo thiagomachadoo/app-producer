@@ -23,6 +23,15 @@ public class NotificationController {
   public NotificationResponseDTO sendNotification(@RequestBody NotificationRequestDTO notification) {
     var data = notificationMapper.fromDtoToDomain(notification);
     var responseData = portIn.sendNotification(data);
+
+    return notificationMapper.fromDomainToDto(responseData);
+  }
+
+  @GetMapping
+  @ResponseStatus(HttpStatus.OK)
+  public NotificationResponseDTO findNotification(@RequestParam String id) {
+    var responseData = portIn.findNotification(id);
+
     return notificationMapper.fromDomainToDto(responseData);
   }
 }

@@ -17,7 +17,7 @@ public class NotificationService implements NotificationPortIn {
 
   @Override
   public NotificationDomain sendNotification(NotificationDomain data) {
-    var isSaved = notificationPortDatabase.saveNotification(data);
+    var isSaved = notificationPortDatabase.save(data);
 
     if (isSaved.isEmpty()) throw new CannotSaveNotificationException("Failed to save notification! Try again!");
 
@@ -27,5 +27,14 @@ public class NotificationService implements NotificationPortIn {
     if (!isDeliveryMessage) throw new CannotSaveNotificationException("Failed to send notification! Try again!");
 
     return notificationData;
+  }
+
+  @Override
+  public NotificationDomain findNotification(String id) {
+    var existsData = notificationPortDatabase.find(id);
+
+    if (existsData.isEmpty()) throw new NotificationNotFoundException("Notification with id " + id + " not found!");
+
+    return existsData.get();
   }
 }

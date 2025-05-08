@@ -5,6 +5,7 @@ import org.code.notificationapprove.application.core.domain.*;
 import java.util.*;
 
 public interface NotificationPortDatabase {
-  Optional<NotificationDomain> saveNotification(NotificationDomain data);
+  Optional<NotificationDomain> save(NotificationDomain data);
 
+  Optional<NotificationDomain> find(String id);
 }

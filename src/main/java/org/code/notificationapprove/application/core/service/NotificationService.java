@@ -35,7 +35,7 @@ public class NotificationService implements NotificationPortIn {
   public NotificationDomain findNotification(String id) {
     var existsData = notificationPortDatabase.find(id);
 
-    if (existsData.isEmpty()) throw new NotificationNotFoundException("Notification with id " + id + " not found!");
+    if (existsData.isEmpty()) throw new NotFoundException("Notification with id " + id + " not found!");
 
     return existsData.get();
   }
@@ -44,8 +44,20 @@ public class NotificationService implements NotificationPortIn {
   public List<NotificationDomain> findAllNotifications() {
     var existsData = notificationPortDatabase.findAll();
 
-    if (existsData.isEmpty()) throw new NotificationNotFoundException("No data found!");
+    if (existsData.isEmpty()) throw new NotFoundException("No data found!");
 
     return existsData;
+  }
+
+  @Override
+  public NotificationDomain modify(NotificationDomain notification, String id) {
+    var existsData = notificationPortDatabase.find(id);
+
+    if (existsData.isEmpty()) throw new NotFoundException("Data with id " + id + " not found!");
+
+    var isModify = notificationPortDatabase.modify(notification, id);
+    if (isModify.isEmpty()) throw new CannotSaveNotificationException("Failed to modify information! Try again!");
+
+    return isModify.get();
   }
 }

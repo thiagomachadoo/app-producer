@@ -21,7 +21,7 @@ public class NotificationController {
   }
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED)
+  @ResponseStatus(HttpStatus.ACCEPTED)
   public NotificationResponseDTO sendNotification(@RequestBody NotificationRequestDTO notification) {
     var data = notificationMapper.fromDtoToDomain(notification);
     var responseData = portIn.sendNotification(data);
@@ -44,4 +44,15 @@ public class NotificationController {
 
     return notificationMapper.toDtoList(responseData);
   }
+
+  @PatchMapping
+  @ResponseStatus(HttpStatus.OK)
+  public NotificationResponseDTO updateNotification(@RequestBody NotificationModifyRequestDTO notification,
+                                                    @RequestParam String id) {
+    var data = notificationMapper.fromDtoModifyToDomain(notification);
+    var responseData = portIn.modify(data, id);
+
+    return notificationMapper.fromDomainToDto(responseData);
+  }
+
 }

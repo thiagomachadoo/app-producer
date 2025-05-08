@@ -43,7 +43,7 @@ public class NotificationRepositoryImpl implements NotificationPortDatabase {
   public Optional<NotificationDomain> find(String id) {
 
     var data = repository.findById(id)
-        .orElseThrow(() -> new NotificationNotFoundException("Notification not found for id: " + id));
+        .orElseThrow(() -> new NotFoundException("Person not found for id: " + id));
 
     return Optional.of(notificationMapper.fromEntityToDomain(data));
   }
@@ -56,6 +56,20 @@ public class NotificationRepositoryImpl implements NotificationPortDatabase {
     var data = collection.find().into(new ArrayList<>());
 
     return ManualMapUtil.mapFromDocuments(data);
+  }
+
+  @Override
+  public Optional<NotificationDomain> modify(NotificationDomain data, String id) {
+    var entity = repository.findById(id)
+        .orElseThrow(() -> new NotFoundException("Person not found!"));
+
+    if (data.getName() != null) entity.setName(data.getName());
+    if (data.getLastName() != null) entity.setLastName(data.getLastName());
+    if (data.getCountry() != null) entity.setCountry(data.getCountry());
+    if (data.getAge() != 0) entity.setAge(data.getAge());
+
+    var savedData = repository.save(entity);
+    return Optional.of(notificationMapper.fromEntityToDomain(savedData));
   }
 
   public MongoCollection<Document> getDocumentMongoCollection() {

@@ -14,6 +14,9 @@ public interface NotificationMapper {
   @Mapping(target = "id", ignore = true)
   NotificationDomain fromDtoToDomain(NotificationRequestDTO dto);
 
+  @Mapping(target = "id", ignore = true)
+  NotificationDomain fromDtoModifyToDomain(NotificationModifyRequestDTO dto);
+
   NotificationEntity fromDomainToEntity(NotificationDomain domain);
 
   NotificationResponseDTO fromDomainToDto(NotificationDomain domain);

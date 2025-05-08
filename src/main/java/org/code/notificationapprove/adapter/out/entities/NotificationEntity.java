@@ -9,6 +9,7 @@ import org.springframework.data.mongodb.core.mapping.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class NotificationEntity {
 
   @Id

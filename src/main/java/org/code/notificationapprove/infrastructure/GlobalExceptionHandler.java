@@ -13,7 +13,7 @@ public class GlobalExceptionHandler {
   public ErrorResponse handleErrorDatabase(CannotSaveNotificationException ex, HttpServletRequest request) {
     return new ErrorResponse(
         ex.getMessage(),
-        "Cannot save notification!",
+        "Cannot save person notification!",
         HttpStatus.INTERNAL_SERVER_ERROR.value(),
         request.getRequestURI()
     );
@@ -24,18 +24,18 @@ public class GlobalExceptionHandler {
   public ErrorResponse handleErrorQueue(CannotDeliveryMessageToQueue ex, HttpServletRequest request) {
     return new ErrorResponse(
         ex.getMessage(),
-        "Cannot sent notification to queue!",
+        "Cannot sent person notification to queue!",
         HttpStatus.INTERNAL_SERVER_ERROR.value(),
         request.getRequestURI()
     );
   }
 
-  @ExceptionHandler(NotificationNotFoundException.class)
+  @ExceptionHandler(NotFoundException.class)
   @ResponseStatus(HttpStatus.NOT_FOUND)
-  public ErrorResponse handleErrorQueue(NotificationNotFoundException ex, HttpServletRequest request) {
+  public ErrorResponse handleErrorQueue(NotFoundException ex, HttpServletRequest request) {
     return new ErrorResponse(
         ex.getMessage(),
-        "Cannot find notification!",
+        "Cannot find person data!",
         HttpStatus.NOT_FOUND.value(),
         request.getRequestURI()
     );

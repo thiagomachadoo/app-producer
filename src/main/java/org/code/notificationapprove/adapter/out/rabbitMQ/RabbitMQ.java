@@ -18,7 +18,7 @@ public class RabbitMQ implements NotificationPortServices {
 
     try {
       var fullMessage = messageRabbitMQ(data);
-      rabbitTemplate.convertAndSend("notification-queue",fullMessage);
+      rabbitTemplate.convertAndSend("delay.queue",fullMessage);
       return true;
     } catch (Exception e) {
       throw new CannotSaveNotificationException("Failed to send notification! Try again!");

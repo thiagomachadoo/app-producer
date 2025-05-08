@@ -21,7 +21,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      - MONGO_URI=mongodb://mongo:27017/mongodb
+      - MONGO_URI=mongodb://mongo:27017/notificationdb
       - SPRING_RABBITMQ_HOST=rabbitmq
       - SPRING_RABBITMQ_PORT=5672
       - SPRING_RABBITMQ_USERNAME=guest
@@ -54,7 +54,7 @@ services:
   datadog-agent:
     image: gcr.io/datadoghq/agent:latest
     environment:
-      - DD_API_KEY=d222b775e1e9ce61197d2a463b4e3917
+      - DD_API_KEY=${DD_API_KEY}
       - DD_APM_ENABLED=true
       - DD_APM_NON_LOCAL_TRAFFIC=true
     ports:

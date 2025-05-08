@@ -1,6 +1,5 @@
 package org.code.notificationapprove.application.port.interfaces;
 
-import org.code.notificationapprove.adapter.in.dto.*;
 import org.code.notificationapprove.application.core.domain.*;
 
 import java.util.*;

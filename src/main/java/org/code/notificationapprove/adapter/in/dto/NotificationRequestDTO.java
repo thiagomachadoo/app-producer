@@ -1,8 +1,14 @@
 package org.code.notificationapprove.adapter.in.dto;
 
+import lombok.*;
+
 public record NotificationRequestDTO(
+     @NonNull
      String name,
+     @NonNull
      String lastName,
-     int age,
+     @NonNull
+     Integer age,
+     @NonNull
      String country
 ) {}

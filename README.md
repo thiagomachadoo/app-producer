@@ -73,17 +73,6 @@ A arquitetura segue o modelo **Hexagonal (Ports & Adapters)**, promovendo uma se
 ```bash
 ./mvnw clean test
 ```
-## 🐳 Docker & Deploy
-1. Build da Imagem
-
-```bash
-docker build -t app-producer .
-```
-2. Rodar localmente
-   
-```bash
-docker run -p 8080:8080 app-producer
-```
 
 ## 📬 Fila de Mensagens com Delay
 A fila de mensagens implementa um Delayed Letter Queue, configurada para reter as mensagens por 2 minutos antes de disponibilizá-las ao consumidor. Isso garante que a notificação não seja enviada imediatamente após o cadastro.
@@ -107,7 +96,7 @@ Consumer: Processa após o delay e envia a notificação via SendGrid (e-mail).
     - Producer: https://railway.com/project/ad16e77e-968a-4ad9-9203-2d9955ae117d/service/4c5719d1-052e-4618-a6f7-cf612170a37a?environmentId=8abe6965-ba78-4d2b-ac3b-18ba911eef1a&id=d0d3905b-b76d-4d6f-9172-324c82edaf3e#deploy
     - Consumer: https://railway.com/project/ad16e77e-968a-4ad9-9203-2d9955ae117d/service/5837e00c-18b2-4197-aafd-e7befa1a6737?environmentId=8abe6965-ba78-4d2b-ac3b-18ba911eef1a&id=b348914a-5e52-4caa-8296-e8559e68f074#deploy
 
-## 🚀 Manual de Configuração
+## 🚀 Manual de Configuração e 🐳 Docker
 ### Producer
 1. Clone o repositório:
 ```bash

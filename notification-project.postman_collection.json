@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "018b89e8-bcc2-4a1a-aa84-d1475d80847f",
+		"name": "NOTIFICATION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24239114"
+	},
+	"item": [
+		{
+			"name": "DEV",
+			"item": [
+				{
+					"name": "/notify - Salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Thiago Da Silva\",\r\n    \"lastName\": \"Machado\",\r\n    \"age\": 21,\r\n    \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "locahost:8080/notify",
+							"host": [
+								"locahost"
+							],
+							"port": "8080",
+							"path": [
+								"notify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/all - Buscar todos",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/{id} - Buscar pelo ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost/notification",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"notification"
+							]
+						},
+						"description": "Generated from cURL: curl -k https://localhost/notification"
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/{id} - Alterar pelo ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"name\": \"Thiagooooooooooooooooooooooooooo\",\r\n        \"lastName\": \"Machado0OOOOOOOOOO\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/notify?id=681c1035061e2321143061ee",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"notify"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "681c1035061e2321143061ee"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/{id} - Remover",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/notify?id=681c1035061e2321143061ee",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"notify"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "681c1035061e2321143061ee"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "STAGING",
+			"item": [
+				{
+					"name": "/notify - Salvar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Thiago Da Silva\",\r\n    \"lastName\": \"Machado\",\r\n    \"age\": 21,\r\n    \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://app-producer-staging.up.railway.app/notify",
+							"protocol": "https",
+							"host": [
+								"app-producer-staging",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"notify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/all - Buscar todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://app-producer-staging.up.railway.app/notify/all",
+							"protocol": "https",
+							"host": [
+								"app-producer-staging",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"notify",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/{id} - Buscar pelo ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost/notification",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"notification"
+							]
+						},
+						"description": "Generated from cURL: curl -k https://localhost/notification"
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/{id} - Alterar pelo ID",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Marcella Martins\",\r\n    \"lastName\": \"Machado\",\r\n    \"age\": 456,\r\n    \"country\": \"Brasil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://app-producer-staging.up.railway.app/notify?id=681c3431b6e5ce5aa8f7ec45",
+							"protocol": "https",
+							"host": [
+								"app-producer-staging",
+								"up",
+								"railway",
+								"app"
+							],
+							"path": [
+								"notify"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "681c3431b6e5ce5aa8f7ec45"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/notify/{id} - Remover",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/notify?id=681c1035061e2321143061ee",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"notify"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "681c1035061e2321143061ee"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

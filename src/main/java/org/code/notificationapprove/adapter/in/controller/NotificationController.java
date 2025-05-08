@@ -55,4 +55,10 @@ public class NotificationController {
     return notificationMapper.fromDomainToDto(responseData);
   }
 
+  @DeleteMapping
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deleteNotification(@RequestParam String id) {
+    portIn.delete(id);
+  }
+
 }

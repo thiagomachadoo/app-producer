@@ -72,6 +72,11 @@ public class NotificationRepositoryImpl implements NotificationPortDatabase {
     return Optional.of(notificationMapper.fromEntityToDomain(savedData));
   }
 
+  @Override
+  public void delete(String id) {
+    repository.deleteById(id);
+  }
+
   public MongoCollection<Document> getDocumentMongoCollection() {
     MongoClient mongoClient = MongoClients.create(databaseUrl);
     MongoDatabase database = mongoClient.getDatabase(databaseName);

@@ -4,7 +4,6 @@ import org.code.notificationapprove.application.core.domain.*;
 import org.code.notificationapprove.application.port.interfaces.*;
 import org.code.notificationapprove.application.port.repositories.*;
 import org.code.notificationapprove.infrastructure.exceptions.*;
-
 import java.util.*;
 
 public class NotificationService implements NotificationPortIn {
@@ -59,5 +58,13 @@ public class NotificationService implements NotificationPortIn {
     if (isModify.isEmpty()) throw new CannotSaveNotificationException("Failed to modify information! Try again!");
 
     return isModify.get();
+  }
+
+  @Override
+  public void delete(String id) {
+    var existsData = notificationPortDatabase.find(id);
+    if (existsData.isEmpty()) throw new NotFoundException("Person with id " + id + " not found!");
+
+    notificationPortDatabase.delete(id);
   }
 }

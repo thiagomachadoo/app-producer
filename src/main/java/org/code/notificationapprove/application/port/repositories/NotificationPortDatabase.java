@@ -13,4 +13,6 @@ public interface NotificationPortDatabase {
   List<NotificationDomain> findAll();
 
   Optional<NotificationDomain> modify(NotificationDomain data, String id);
+
+  void delete(String id);
 }

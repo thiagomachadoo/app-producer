@@ -46,9 +46,9 @@ A arquitetura segue o modelo **Hexagonal (Ports & Adapters)**, promovendo uma se
 
 | Ambiente  | Base URL (API Gateway)                                | Observability URL                                                                                                                   |
 |-----------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Dev       | `local`                                               | `em progresso`                                                                                                                      |
+| Dev       | `apenas localhost`                                    | `https://api.datadoghq.com`                                                                                                         |
 | Staging   | `https://app-producer-staging.up.railway.app`         | `https://railway.com/project/ad16e77e-968a-4ad9-9203-2d9955ae117d/observability?environmentId=8abe6965-ba78-4d2b-ac3b-18ba911eef1a` |
-| Prod      | `https://app-producer-production-4558.up.railway.app` | `https://railway.com/project/ad16e77e-968a-4ad9-9203-2d9955ae117d/observability?environmentId=8abe6965-ba78-4d2b-ac3b-18ba911eef1a` |
+| Prod      | `limitação free tier`                                 | `limitação free tier`                                                                                                                                 |
 
 ### Exemplos de Endpoints
 

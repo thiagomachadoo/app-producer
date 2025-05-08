@@ -5,6 +5,8 @@ import org.code.notificationapprove.application.port.interfaces.*;
 import org.code.notificationapprove.application.port.repositories.*;
 import org.code.notificationapprove.infrastructure.exceptions.*;
 
+import java.util.*;
+
 public class NotificationService implements NotificationPortIn {
 
   private final NotificationPortDatabase notificationPortDatabase;
@@ -36,5 +38,14 @@ public class NotificationService implements NotificationPortIn {
     if (existsData.isEmpty()) throw new NotificationNotFoundException("Notification with id " + id + " not found!");
 
     return existsData.get();
+  }
+
+  @Override
+  public List<NotificationDomain> findAllNotifications() {
+    var existsData = notificationPortDatabase.findAll();
+
+    if (existsData.isEmpty()) throw new NotificationNotFoundException("No data found!");
+
+    return existsData;
   }
 }

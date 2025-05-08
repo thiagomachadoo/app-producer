@@ -6,6 +6,8 @@ import org.code.notificationapprove.mapper.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.*;
+
 @RestController
 @RequestMapping("/notify")
 public class NotificationController {
@@ -33,5 +35,13 @@ public class NotificationController {
     var responseData = portIn.findNotification(id);
 
     return notificationMapper.fromDomainToDto(responseData);
+  }
+
+  @GetMapping("/all")
+  @ResponseStatus(HttpStatus.OK)
+  public List<NotificationResponseDTO> findAllNotifications() {
+    var responseData = portIn.findAllNotifications();
+
+    return notificationMapper.toDtoList(responseData);
   }
 }

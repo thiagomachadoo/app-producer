@@ -8,4 +8,6 @@ public interface NotificationPortDatabase {
   Optional<NotificationDomain> save(NotificationDomain data);
 
   Optional<NotificationDomain> find(String id);
+
+  List<NotificationDomain> findAll();
 }

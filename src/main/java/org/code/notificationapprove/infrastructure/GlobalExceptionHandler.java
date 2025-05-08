@@ -36,7 +36,7 @@ public class GlobalExceptionHandler {
     return new ErrorResponse(
         ex.getMessage(),
         "Cannot find notification!",
-        HttpStatus.INTERNAL_SERVER_ERROR.value(),
+        HttpStatus.NOT_FOUND.value(),
         request.getRequestURI()
     );
   }

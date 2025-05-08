@@ -15,6 +15,9 @@ public class NotificationDomain {
     this.country = country;
   }
 
+  public NotificationDomain() {
+  }
+
   public String getId() {
     return id;
   }

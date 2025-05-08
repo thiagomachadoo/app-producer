@@ -1,17 +1,26 @@
 package org.code.notificationapprove.adapter.out.repositories.impl;
 
+import com.mongodb.client.*;
+import org.bson.*;
 import org.code.notificationapprove.adapter.out.repositories.*;
 import org.code.notificationapprove.application.core.domain.*;
 import org.code.notificationapprove.application.port.repositories.*;
 import org.code.notificationapprove.infrastructure.exceptions.*;
 import org.code.notificationapprove.mapper.*;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.context.annotation.*;
 import org.springframework.stereotype.*;
+import org.springframework.transaction.annotation.*;
 
 import java.util.*;
 
 @Component
 public class NotificationRepositoryImpl implements NotificationPortDatabase {
+
+  @Value("${spring.data.mongodb.uri}")
+  private String databaseUrl;
+  @Value("${spring.data.mongodb.database}")
+  private String databaseName;
 
   private final NotificationRepository repository;
   private final NotificationMapper notificationMapper;
@@ -37,5 +46,21 @@ public class NotificationRepositoryImpl implements NotificationPortDatabase {
         .orElseThrow(() -> new NotificationNotFoundException("Notification not found for id: " + id));
 
     return Optional.of(notificationMapper.fromEntityToDomain(data));
+  }
+
+  @Override
+  @Transactional
+  public List<NotificationDomain> findAll() {
+    MongoCollection<Document> collection = getDocumentMongoCollection();
+
+    var data = collection.find().into(new ArrayList<>());
+
+    return ManualMapUtil.mapFromDocuments(data);
+  }
+
+  public MongoCollection<Document> getDocumentMongoCollection() {
+    MongoClient mongoClient = MongoClients.create(databaseUrl);
+    MongoDatabase database = mongoClient.getDatabase(databaseName);
+    return database.getCollection("notification");
   }
 }

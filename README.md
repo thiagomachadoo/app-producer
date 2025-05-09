@@ -8,7 +8,7 @@ Este projeto implementa um sistema completo de cadastro e notificação baseado 
 
 A arquitetura segue o modelo **Hexagonal (Ports & Adapters)**, promovendo uma separação clara entre a lógica de negócio (core domain) e suas interfaces externas, como banco de dados, fila de mensagens e gateways externos. Essa abordagem facilita testes, manutenção e extensão futura da aplicação.
 
-![functional-draw-arch-hexagonal-and-fluxogram](https://github.com/user-attachments/assets/2fedef02-fdc9-48c7-aa57-8d076c838104)
+![functional-draw-arch-hexagonal-and-fluxogram](https://github.com/user-attachments/assets/b839c5c0-26ea-4bf5-87d8-ba57bcafb642)
 
 
 ## ✅ Requisitos Funcionais
@@ -146,6 +146,7 @@ docker-compose up --build
 | Arquitetura           | Hexagonal (Ports & Adapters)     |
 | Containerização       | Docker, Docker Hub               |
 | Mensageria            | RabbitMQ / CloudAMQP             |
+| Persistência          | MongoDB                          |
 | API Gateway & Deploy  | Railway                          |
 | Observabilidade       | Railway, Datadog                 |
 | Logs                  | Logback (default do Spring)      |

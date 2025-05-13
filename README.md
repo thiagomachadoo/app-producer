@@ -1,6 +1,6 @@
 # 📬 Notification Approve System
 
-Este projeto implementa um sistema completo de cadastro e notificação baseado em **arquitetura hexagonal (Ports & Adapters)**, utilizando **Spring Boot** com padrões REST e containerização via Docker. O fluxo central consiste em receber dados de pessoas e enviar uma notificação com atraso de 2 minutos para uma fila, onde um consumidor trata o envio de e-mails via SendGrid ou mensagens via Twilio.
+Este projeto implementa um sistema completo de cadastro e notificação baseado em **arquitetura hexagonal (Ports & Adapters)**, utilizando **Spring Boot** com padrões REST e containerização via Docker. O fluxo central consiste em receber dados de pessoas e enviar uma notificação com atraso de 2 minutos para uma fila, onde um consumidor trata o envio de e-mails via SendGrid.
 
 ---
 
